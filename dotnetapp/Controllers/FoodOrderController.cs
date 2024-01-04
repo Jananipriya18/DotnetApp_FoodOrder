@@ -100,12 +100,13 @@ namespace dotnetapp.Controllers
                 return NotFound();
             }
 
-            return View(foodOrder);
+            return View("Delete", foodOrder);
         }
+
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             var foodOrder = await _context.FoodOrders.FindAsync(id);
             if (foodOrder != null)
